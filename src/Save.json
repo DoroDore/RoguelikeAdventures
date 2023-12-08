@@ -1,0 +1,29 @@
+[
+  {
+  "Name": "NEWFILE1",
+  "Runs": 1,
+  "Best Run": 2,
+  "ATK": 3,
+  "DEF": 4,
+  "HP": 5,
+  "Mana": 6
+  },
+  {
+    "Name": "NEWFILE2",
+    "Runs": 6,
+    "Best Run": 5,
+    "ATK": 4,
+    "DEF": 3,
+    "HP": 2,
+    "Mana": 1
+  },
+  {
+    "Name": "NEWFILE3",
+    "Runs": 10,
+    "Best Run": 9,
+    "ATK": 8,
+    "DEF": 7,
+    "HP": 6,
+    "Mana": 5
+  }
+]
