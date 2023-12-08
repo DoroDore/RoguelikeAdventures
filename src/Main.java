@@ -7,10 +7,52 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         Saves.pickSave();
-        Text.intro();
+        boolean lock = true;
+        while (lock) {
+            char response = menuOptions();
+            if (response == 'P') {
+                System.out.println("Temporary Text");
+            }
+            else if (response == 'S') {
+                System.out.println("Here are your current stats!\n");
+                Saves.checkSave();
+                System.out.println("W"); //Note to self, I need to add the wipe save function also
+                System.out.println("\nPress Enter to Continue...");
+                stall();
+            }
+            else if (response == 'I') {
+                Text.instructions();
+            }
+            else if (response == 'E') {
+                System.out.println("Thanks for playing!");
+                System.exit(0);
+            }
+        }
     }
     private static char menuOptions() {
-        return 'a';
+        Scanner scanner = new Scanner(System.in);
+        Text.intro();
+        String input = scanner.next();
+        if (input.equalsIgnoreCase("P")) {
+            return 'P';
+        }
+        else if (input.equalsIgnoreCase("S")) {
+            return 'S';
+        }
+        else if (input.equalsIgnoreCase("I")) {
+            return 'I';
+        }
+        else if (input.equalsIgnoreCase("E")) {
+            return 'E';
+        }
+        else {
+            System.out.println("Please input a valid character.");
+            return 'A';
+        }
+    }
+    private static void stall() {
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
 }

@@ -42,7 +42,7 @@ public class Saves {
         return data;
 
     }
-    private static void loadData(JSONArray data, int fileNo) {
+    private static void loadData(JSONArray data, int fileNo) { //Note to self, I need to find a way for the player to start new saves in unused save slots
         JSONObject obj = (JSONObject) data.get(fileNo-1);
         fileName = (String) obj.get("Name");
         runs = (long) obj.get("Runs");
@@ -58,6 +58,15 @@ public class Saves {
         System.out.println(DEF);
         System.out.println(HP);
         System.out.println(Mana);
+    }
+    public static void checkSave() {
+        System.out.println("File Name: " + fileName);
+        System.out.println("Runs: " + runs);
+        System.out.println("Best Run: " + bestRun);
+        System.out.println("Base ATK: " + ATK);
+        System.out.println("Base DEF: " + DEF);
+        System.out.println("Base HP: " + HP);
+        System.out.println("Base Mana: " + Mana);
     }
     public static String getFileName() {
         return fileName;

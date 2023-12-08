@@ -24,11 +24,18 @@ public class Text {
         stall();
         System.out.println("These buffs may include weapons, spells, or stat buffs that last throughout the round.");
         stall();
+        System.out.println("Spells have a more unique concept, and fit into certain spell slots, ranging from 1 to 4.");
+        stall();
+        System.out.println("Spell slots 1 and 2 are for spells obtainable after defeating enemies, which spell slot 3 is dedicated to specific weapons, and slot 4 being dedicated to powerful \"Soulspells\"");
+        stall();
+        System.out.println("Play the game to discover unique builds and synergies!");
+        stall();
         System.out.println("However, if your HP reaches zero, all your progress will be reset back to square one.");
         stall();
         System.out.println("However, that doesn't mean all hope is lost. At the end of each round, permanent buffs will be added to your character, allowing for better runs in the future.");
         stall();
-        System.out.println("The")
+        System.out.println("Over multiple runs, you'll encounter all kinds of different enemies, each with their own mechanics, ensuring that each replay is different. Good luck!");
+        stall();
     }
     private static void stall() {
         Scanner scanner = new Scanner(System.in);

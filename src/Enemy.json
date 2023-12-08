@@ -1,0 +1,68 @@
+[
+  {
+    "Name": "Blue Slime",
+    "ATK": 2,
+    "DEF": 0,
+    "HP": 10
+  },
+  {
+    "Name": "Red Slime",
+    "ATK": 3,
+    "DEF": 0,
+    "HP": 12
+  },
+  {
+    "Name": "Heavy Slime",
+    "ATK": 1,
+    "DEF": 2,
+    "HP": 20
+  },
+  {
+    "Name": "Rocky",
+    "ATK": 3,
+    "DEF": 1,
+    "HP": 20
+  },
+  {
+    "Name": "Mossy Rocky",
+    "ATK": 4,
+    "DEF": 0,
+    "HP": 15
+  },
+  {
+    "Name": "Wooden Puppet",
+    "ATK": 5,
+    "DEF": 0,
+    "HP": 12
+  },
+  {
+    "Name": "Breezy Blob",
+    "ATK": 1,
+    "DEF": 1,
+    "HP": 11
+  },
+  {
+    "Name": "Breezy Blob",
+    "ATK": 1,
+    "DEF": 1,
+    "HP": 11
+  },
+  {
+    "Name": "Slime String",
+    "ATK": 2,
+    "DEF": 0,
+    "HP": 30
+  },
+  {
+    "Name": "Bcbcoh",
+    "ATK": 4,
+    "DEF": 2,
+    "HP": 20
+  },
+  {
+    "Name": "Thundercloud",
+    "ATK": 5,
+    "DEF": 0,
+    "HP": 15
+  }
+]
