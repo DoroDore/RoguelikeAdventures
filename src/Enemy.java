@@ -6,16 +6,19 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Enemy {
     public static Enemy gCurrentEnemy;
     static HashMap<String, Enemy> gEnemyMap = new HashMap<>();
-    private final int mID;
-    private final String mName;
-    private final int mATK;
-    private final int mDEF;
-    private final int mHP;
-    private final String[] mMoves;
+    private int mID;
+    private String mName;
+    private int mATK;
+    private int mDEF;
+    private int mHP;
+    private int mOriginalHP; // New variable to store original HP
+    private String[] mMoves;
 
     public Enemy(int ID, String name, int attack, int defense, int hp, String[] moves) {
         mID = ID;
@@ -23,6 +26,7 @@ public class Enemy {
         mATK = attack;
         mDEF = defense;
         mHP = hp;
+        mOriginalHP = hp; // Store original HP when creating an instance
         mMoves = moves;
     }
     /**Reads the specific file "Enemy.json" and returns that data*/
@@ -69,6 +73,96 @@ public class Enemy {
         createEnemies(readFile());
         getMobData("1");
     }
+    public static void displayEnemyStats() {
+        System.out.println("Enemy: " + gCurrentEnemy.mName + "\tEnemy HP: " + gCurrentEnemy.mHP);
+        System.out.println("ATK: " + gCurrentEnemy.mATK + "\tDEF: " + gCurrentEnemy.mDEF);
+    }
+    public static void attackEnemyNormal(int damage) {
+        if (gCurrentEnemy.mDEF >= damage) {
+            System.out.println("The " + gCurrentEnemy.mName + " took no damage!");
+        }
+        else {
+            System.out.println("The " + gCurrentEnemy.mName + " took " + (damage-gCurrentEnemy.mDEF) + " damage!");
+            gCurrentEnemy.mHP -= damage-gCurrentEnemy.getEnemyDEF();
+        }
+
+    }
+    public static void enemyTurn() {
+        Random rand = new Random();
+        int attackChoice = rand.nextInt(10)+1;
+        if (attackChoice <=5) {
+            System.out.println("The " + gCurrentEnemy.mName + " attacks!");
+            if (gCurrentEnemy.mATK <= Character.getPlayerDEF()) {
+                System.out.println("You took no damage!");
+            }
+            else {
+                System.out.println("You took " + (gCurrentEnemy.mATK-Character.getPlayerDEF()) + " damage!");
+                Character.playerDamage(gCurrentEnemy.mATK-Character.getPlayerDEF());
+            }
+            stall();
+        }
+        else if (attackChoice >= 6 && attackChoice <= 8) {
+            callMove(0);
+        }
+        else {
+            callMove(1);
+        }
+    }
+    /**Used for calling on the method that executes code for a specific move*/
+    private static void callMove(int num) {
+        String firstMove = gCurrentEnemy.getEnemyMoves()[num];
+        switch (firstMove) {
+            case "Leap":
+                enMoveLeap();
+                break;
+            case "Reformat":
+                enMoveReformat();
+                break;
+            case "Heavy Slam":
+                enMoveHeavySlam();
+                break;
+            case "Rage":
+                enMoveRage();
+                break;
+            case "Bulldoze":
+                enMoveBulldoze();
+                break;
+            case "Glitch":
+                enMoveGlitch();
+                break;
+            case "Gust":
+                enMoveGust();
+                break;
+            case "Shatter Shot":
+                enMoveShatterShot();
+                break;
+            case "Natural Cure":
+                enMoveNaturalCure();
+                break;
+            case "Control":
+                enMoveControl();
+                break;
+            case "Wooden Strike":
+                enMoveWoodenStrike();
+                break;
+            case "Banana Storm":
+                enMoveBananaStorm();
+                break;
+            case "Banana Blast":
+                enMoveBananaBlast();
+                break;
+            case "Thunderbolt":
+                enMoveThunderbolt();
+                break;
+            case "Soak":
+                enMoveSoak();
+                break;
+            default:
+                // Handle the case when the move is not recognized
+                System.out.println("Invalid move: " + firstMove);
+                break;
+        }
+    }
     public int getEnemyID() {
         return mID;
     }
@@ -87,8 +181,22 @@ public class Enemy {
     public String[] getEnemyMoves() {
         return mMoves;
     }
+    public void resetHPToOriginal() {
+        mHP = mOriginalHP; // Reset HP to original value
+    }
+    private static String doesDamage(int incomingDamage, int damageMit) {
+        if (incomingDamage <= damageMit) {
+            return "no";
+        }
+        return String.valueOf(incomingDamage-damageMit);
+    }
+    private static int damageCalc(int incomingDamage, int damageMit) {
+        return incomingDamage-damageMit;
+    }
     public static void enMoveLeap() {
-
+        System.out.println("The " + gCurrentEnemy.mName + " leaps into the air!");
+        System.out.println("The enemy slams down on you, dealing " + doesDamage(gCurrentEnemy.getEnemyATK()*2, Character.getPlayerDEF()) + " damage!");
+        Character.playerDamage(damageCalc(gCurrentEnemy.getEnemyATK()*2, Character.getPlayerDEF()));
     }
     public static void enMoveReformat() {
 
@@ -131,5 +239,9 @@ public class Enemy {
     }
     public static void enMoveSoak() {
 
+    }
+    private static void stall() {
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 }

@@ -57,6 +57,11 @@ public class Text {
         System.out.println("Press Enter to Continue...");
         stall();
     }
+    public static void encounterEnemy() {
+        System.out.println("As you journey through the " + Main.getStageName() + " you eventually encounter a " + Enemy.gCurrentEnemy.getEnemyName() + "!");
+        System.out.println("Drawing your [WEAPON NAME], you prepare to fight."); //The weapon thing is still under construction...
+        stall();
+    }
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();

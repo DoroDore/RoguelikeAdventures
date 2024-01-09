@@ -73,6 +73,7 @@ public class Saves {
             if (yesNo() == 'Y') {
                 while (fileName.equalsIgnoreCase("[BLANK FILE]")) {
                     System.out.println("What would you like to name this file?");
+                    System.out.println("Note that the file name will also be your character name in game.");
                     Scanner scanner = new Scanner(System.in);
                     name = scanner.nextLine();
                     if (name.equalsIgnoreCase("[BLANK FILE]")) {
@@ -83,10 +84,10 @@ public class Saves {
                         obj.put("Name", name);
                         obj.put("Runs", 0);
                         obj.put("Best Run", 0);
-                        obj.put("ATK", 0);
+                        obj.put("ATK", 3);
                         obj.put("DEF", 0);
-                        obj.put("HP", 0);
-                        obj.put("Mana", 0);
+                        obj.put("HP", 20);
+                        obj.put("Mana", 10);
 
                         // Update the JSON array with the modified object
                         JSONArray data = readFile();
@@ -117,10 +118,10 @@ public class Saves {
         obj.put("Name", "[BLANK FILE]");
         obj.put("Runs", 0);
         obj.put("Best Run", 0);
-        obj.put("ATK", 0);
+        obj.put("ATK", 3);
         obj.put("DEF", 0);
-        obj.put("HP", 0);
-        obj.put("Mana", 0);
+        obj.put("HP", 20);
+        obj.put("Mana", 10);
         data.set(index, obj);
 
         // Write the modified JSON array back to the file

@@ -26,7 +26,11 @@ public class Character {
     public static int getPlayerMana() {
         return gPlayerMana;
     }
-    public static void displayStats() {
-
+    public static void playerDamage(int damageReceived) {
+        gPlayerHP -= (damageReceived - gPlayerDEF);
+    }
+    public static void displayPlayerStats() {
+        System.out.println("Character Name: " + gPlayerName + "\tCurrent HP: " + gPlayerHP);
+        System.out.println("ATK: " + gPlayerATK + "\tDEF: " + gPlayerDEF + "\tMana: " + gPlayerMana);
     }
 }
