@@ -40,7 +40,6 @@ public class Saves {
         JSONParser parser = new JSONParser();
         JSONArray data = (JSONArray) parser.parse(new FileReader("./src/Save.json"));
         return data;
-
     }
     private static void loadData(JSONArray data, int fileNo) { //Note to self, I need to find a way for the player to start new saves in unused save slots
         JSONObject obj = (JSONObject) data.get(fileNo-1);
@@ -51,13 +50,6 @@ public class Saves {
         DEF = (long) obj.get("DEF");
         HP = (long) obj.get("HP");
         Mana = (long) obj.get("Mana");
-        System.out.println(fileName);
-        System.out.println(runs);
-        System.out.println(bestRun);
-        System.out.println(ATK);
-        System.out.println(DEF);
-        System.out.println(HP);
-        System.out.println(Mana);
     }
     public static void checkSave() {
         System.out.println("File Name: " + fileName);
@@ -82,5 +74,11 @@ public class Saves {
     }
     public static int getDEF() {
         return (int) DEF;
+    }
+    public static int getHP() {
+        return (int) HP;
+    }
+    public static int getMana() {
+        return (int) Mana;
     }
 }

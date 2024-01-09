@@ -29,6 +29,11 @@ public class Main {
             }
         }
     }
+    /**This method contains the entire combat system, while calling on other helper methods*/
+    private static void battle() {
+
+    }
+    /**A simple method for checking inputs and returning chars based on results.*/
     private static char menuOptions() {
         Scanner scanner = new Scanner(System.in);
         Text.intro();
@@ -50,6 +55,7 @@ public class Main {
             return 'A';
         }
     }
+    /**Stall is used to create the effect of pressing return/enter for the next line :)*/
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();

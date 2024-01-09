@@ -1,0 +1,82 @@
+[
+  {
+    "ID": 1,
+    "Name": "Enchanted Weapon"
+  },
+  {
+    "ID": 2,
+    "Name": "Sturdy Skin"
+  },
+  {
+    "ID": 3,
+    "Name": "Magic Veins"
+  },
+  {
+    "ID": 4,
+    "Name": "Efficient Casting"
+  },
+  {
+    "ID": 5,
+    "Name": "Berserk Spellcaster"
+  },
+  {
+    "ID": 6,
+    "Name": "Berserk Fighter"
+  },
+  {
+    "ID": 7,
+    "Name": "Spell Reform"
+  },
+  {
+    "ID": 8,
+    "Name": "Weakening Aura"
+  },
+  {
+    "ID": 9,
+    "Name": "Bloody Blade"
+  },
+  {
+    "ID": 10,
+    "Name": "Glass Cannon"
+  },
+  {
+    "ID": 11,
+    "Name": "Blessed Weapon"
+  },
+  {
+    "ID": 12,
+    "Name": "Stone Skin"
+  },
+  {
+    "ID": 13,
+    "Name": "Weakpoint Strike"
+  },
+  {
+    "ID": 14,
+    "Name": "Half But Double"
+  },
+  {
+    "ID": 15,
+    "Name": "Modify Spell"
+  },
+  {
+    "ID": 16,
+    "Name": "Magical Sacrifice"
+  },
+  {
+    "ID": 17,
+    "Name": "Physical Sacrifice"
+  },
+  {
+    "ID": 18,
+    "Name": "Blood Pact"
+  },
+  {
+    "ID": 19,
+    "Name": "Counterattack"
+  },
+  {
+    "ID": 20,
+    "Name": "Boost Soulspell"
+  }
+]
