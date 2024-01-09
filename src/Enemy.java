@@ -32,7 +32,7 @@ public class Enemy {
         return data;
     }
     /**Takes data from the readFile function and stores it into the gEnemyMap hashmap*/
-    private static void createEnemies(JSONArray data) {
+    public static void createEnemies(JSONArray data) {
         for (Object o : data) {
             JSONObject obj = (JSONObject) o;
             int id = ((Long) obj.get("ID")).intValue();
@@ -49,8 +49,12 @@ public class Enemy {
             gEnemyMap.put(String.valueOf(id), enemy);
         }
     }
-    //getMobData is used to check the data of individual mobs by identifying them by their ID code.
-    private static void getMobData(String mobID) {
+    /**Load mob data into the current slot*/
+    public static void loadCurrentMob(String mobID) {
+        gCurrentEnemy = gEnemyMap.get(mobID);
+    }
+    /**getMobData is used to check the data of individual mobs by identifying them by their ID code.*/
+    public static void getMobData(String mobID) {
         gCurrentEnemy = gEnemyMap.get(mobID);
         System.out.println("Enemy ID: " + gCurrentEnemy.getEnemyID());
         System.out.println("Enemy Name: " + gCurrentEnemy.getEnemyName());

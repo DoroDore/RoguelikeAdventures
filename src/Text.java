@@ -37,6 +37,26 @@ public class Text {
         System.out.println("Over multiple runs, you'll encounter all kinds of different enemies, each with their own mechanics, ensuring that each replay is different. Good luck!");
         stall();
     }
+    public static void battleIntro() {
+        System.out.println("When you open your eyes, you're standing in an expansive grass field.");
+        stall();
+        System.out.println("As you stand there, breeze blowing gently against your body, you try to recall your past.");
+        stall();
+        System.out.println("You can't recall anything.");
+        stall();
+        System.out.println("If there's one thing that's clear though, it's that you're currently in the Elysian Meadows.");
+        stall();
+        System.out.println("Almost instinctively, you reach for a scabbard you didn't know you had on your side and draw your sword.");
+        System.out.println("With a smooth hiss, the silver blade catches on the first light.");
+        stall();
+        System.out.println("You aren't sure why, but there's something very important you have to do.");
+        stall();
+        System.out.println("Maybe in this life, or maybe in a future life, but you know you must complete it.");
+        stall();
+        System.out.println("Sword in hand, you set off to begin your journey.");
+        System.out.println("Press Enter to Continue...");
+        stall();
+    }
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
