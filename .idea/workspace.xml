@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54c4e5d0-ee25-462f-bf09-420b92f0c2b8" name="Changes" comment="0.3 Save Wiping and Creation, basic outline for combat">
+    <list default="true" id="54c4e5d0-ee25-462f-bf09-420b92f0c2b8" name="Changes" comment="0.2 Reading Data from Buffs, Enemy, Saves, etc.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Buffs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buffs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Save.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Save.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Saves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Saves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,8 +102,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Enemy" />
         <item itemvalue="Application.Buffs" />
+        <item itemvalue="Application.Enemy" />
       </list>
     </recent_temporary>
   </component>

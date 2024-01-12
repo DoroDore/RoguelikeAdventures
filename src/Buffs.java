@@ -6,6 +6,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Buffs {
     public static Buffs gCurrentBuff;
@@ -17,7 +18,6 @@ public class Buffs {
         mName = name;
         mID = id;
     }
-
     public String getBuffName() {
         return mName;
     }
@@ -32,7 +32,7 @@ public class Buffs {
         return data;
     }
 
-    private static void loadBuffs(JSONArray data) {
+    public static void loadBuffs(JSONArray data) {
         for (Object o : data) {
             JSONObject obj = (JSONObject) o;
             String name = (String) obj.get("Name");
@@ -48,5 +48,12 @@ public class Buffs {
         gCurrentBuff = gBuffMap.get("13");
         System.out.println(gCurrentBuff.getBuffName());
         System.out.println(gCurrentBuff.getBuffID());
+    }
+    public static String getBuff() {
+        Random rand = new Random();
+        int picked = rand.nextInt(20)+1;
+        System.out.println(picked);
+        gCurrentBuff = gBuffMap.get(String.valueOf(picked));
+        return gCurrentBuff.mName;
     }
 }

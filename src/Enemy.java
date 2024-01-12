@@ -99,7 +99,6 @@ public class Enemy {
                 System.out.println("You took " + (gCurrentEnemy.mATK-Character.getPlayerDEF()) + " damage!");
                 Character.playerDamage(gCurrentEnemy.mATK-Character.getPlayerDEF());
             }
-            stall();
         }
         else if (attackChoice >= 6 && attackChoice <= 8) {
             callMove(0);
@@ -107,6 +106,7 @@ public class Enemy {
         else {
             callMove(1);
         }
+        stall();
     }
     /**Used for calling on the method that executes code for a specific move*/
     private static void callMove(int num) {
@@ -199,24 +199,49 @@ public class Enemy {
         Character.playerDamage(damageCalc(gCurrentEnemy.getEnemyATK()*2, Character.getPlayerDEF()));
     }
     public static void enMoveReformat() {
-
+        Random rand = new Random();
+        System.out.println("The " + gCurrentEnemy.mName + " uses Reformat!");
+        int regen = rand.nextInt(6)+5;
+        System.out.println("The " + gCurrentEnemy.mName + " reformats it's body and regenerates " + regen + "HP!");
+        gCurrentEnemy.mHP += regen;
     }
     public static void enMoveHeavySlam() {
-
+        System.out.println("The " + gCurrentEnemy.mName + " uses Heavy Slam!");
+        System.out.println("The enemy uses it's heavy weight to crush you, dealing " + doesDamage(gCurrentEnemy.getEnemyDEF()*2+3, Character.getPlayerDEF()) + " damage!");
+        Character.playerDamage(damageCalc(gCurrentEnemy.getEnemyDEF()*2+3, Character.getPlayerDEF()));
     }
     public static void enMoveRage() {
-
+        Random rand = new Random();
+        System.out.println("The " + gCurrentEnemy.mName + " uses Rage!");
+        int atkRaise = rand.nextInt(3)+1;
+        System.out.println("The enemy's attack rose by " + atkRaise + " points!");
     }
     public static void enMoveBulldoze() {
-
+        System.out.println("The " + gCurrentEnemy.mName + " uses Bulldoze!");
+        System.out.println("The enemy slams into you, dealing " + doesDamage(gCurrentEnemy.mHP/2, Character.getPlayerDEF()));
+        Character.playerDamage(damageCalc(gCurrentEnemy.getEnemyHP()/2, Character.getPlayerDEF()));
     }
     public static void enMoveGlitch() {
-
+        Random rand = new Random();
+        System.out.println("The " + gCurrentEnemy.mName + " uses Glitch!");
+        int glitchCrit = rand.nextInt(3)+1;
+        if (glitchCrit == 3) {
+            System.out.println("The  glitch causes the " + gCurrentEnemy.mName + " to bug out, dealing extra damage!");
+            System.out.println("You took " + doesDamage(gCurrentEnemy.mATK*3, Character.getPlayerDEF()) + " damage!");
+        }
+        else {
+            System.out.println("The glitch causes the " + gCurrentEnemy.mName + " to malfunction, making it take damage instead!");
+            System.out.println("The " +gCurrentEnemy.mName + "takes " + gCurrentEnemy.mHP/4 + " damage!");
+            attackEnemyNormal(gCurrentEnemy.mHP/4);
+        }
     }
     public static void enMoveGust() {
-
+        System.out.println("The " + gCurrentEnemy.mName + " uses Gust!");
+        System.out.println("The piercing winds pierce through your defenses, dealing " + doesDamage((int) (gCurrentEnemy.mATK * 1.5),Character.getPlayerDEF()/2));
+        Character.playerDamage(damageCalc((int) (gCurrentEnemy.mATK * 1.5),Character.getPlayerDEF()/2));
     }
     public static void enMoveShatterShot() {
+        System.out.println("The " + gCurrentEnemy.mName + " uses Shatter Shot!");
 
     }
     public static void enMoveNaturalCure() {

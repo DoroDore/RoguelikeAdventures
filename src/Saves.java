@@ -110,6 +110,33 @@ public class Saves {
         }
         return 0;
     }
+    public static void updateRuns() throws IOException {
+        runs++;
+        writeSave();
+        System.out.println("Runs successfully updated!");
+    }
+    private static void writeSave() throws IOException {
+        // Update the JSON object with the new run count
+        JSONObject obj = new JSONObject();
+        obj.put("Name", fileName);
+        obj.put("Runs", runs);
+        obj.put("Best Run", bestRun);
+        obj.put("ATK", ATK);
+        obj.put("DEF", DEF);
+        obj.put("HP", HP);
+        obj.put("Mana", Mana);
+
+        // Update the JSON array with the modified object
+        JSONArray data = readFile();
+        int fileNo = Saves.fileNo - 1;
+        data.set(fileNo, obj);
+
+        // Write the modified JSON array back to the file
+        File file = new File("./src/Save.json");
+        FileWriter writer = new FileWriter(file);
+        writer.write(data.toJSONString());
+        writer.close();
+    }
 /**Very important method that wipes a save!*/
     public static void wipeSave() throws IOException, ParseException {
         JSONArray data = readFile();

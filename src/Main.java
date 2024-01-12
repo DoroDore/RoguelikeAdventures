@@ -80,7 +80,7 @@ public class Main {
         }
     }
     /**This method contains the entire combat system, while calling on other helper methods*/
-    private static void battle(){
+    private static void battle() throws IOException {
         Text.battleIntro();
         int currentStage = 1;
         int currentLevel = 1;
@@ -100,13 +100,13 @@ public class Main {
                 System.out.println("Temp Boss");
             }
             combatLoop();
-            System.out.println("About here a reward would be granted");
+            generateRewards();
             stall();
         }
 
     }
     /**Used for when you are currently engaged in combat*/
-    private static void combatLoop() {
+    private static void combatLoop() throws IOException {
         Text.encounterEnemy();
         char combatChoice;
         while (Character.getPlayerHP() > 0) {
@@ -146,11 +146,39 @@ public class Main {
         System.out.println("There is comfort in that thought.");
         stall();
         System.out.println("You died!");
+        Saves.updateRuns();
+        /*Note to self where I left off, I should probably take the death effect out of the combat loop because that's bad code...
+        DO IT LATER
+        */
         System.exit(0);
+    }
+    /**A function used for generating the random buffs that you can get, whether it be a spell, a buff, or a weapon*/
+    private static void generateRewards() {
+        String[] rewards = new String[3];
+        String[] rewardType = new String[3];
+        Random rand = new Random();
+        for (int i = 0; i < 3; i++) {
+            int type = rand.nextInt(3)+1; //1 is Buffs, 2 is Spells, 3 is Weapons.
+            if (type == 1) {
+                rewards[i] = Buffs.getBuff();
+                rewardType[i] = "Buff";
+            }
+            else if (type == 2) {
+                rewards[i] = "Temporary Spell Result";
+                rewardType[i] = "Spell";
+            }
+            else {
+                rewards[i] = "Temporary Weapon Result";
+                rewardType[i] = "Weapon";
+            }
+        }
+        System.out.println("Choose a reward!");
+        System.out.println("[1] " + rewards[0] + "(" + rewardType[0] + ")" + "\t[2] " + rewards[1] + "(" + rewardType[1] + ")" + "\t[3] " + rewards[2] + "(" + rewardType[2] + ")");
     }
     /**Used for setting up all the things in the background*/
     private static void setup() throws IOException, ParseException {
         Enemy.createEnemies(readFile("./src/Enemy.json"));
+        Buffs.loadBuffs(readFile("./src/Buffs.json"));
     }
     private static char combatOptions() {
         Scanner scanner = new Scanner(System.in);
