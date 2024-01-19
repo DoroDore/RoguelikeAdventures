@@ -110,12 +110,12 @@ public class Saves {
         }
         return 0;
     }
-    public static void updateRuns() throws IOException {
+    public static void updateRuns() throws IOException, ParseException {
         runs++;
         writeSave();
         System.out.println("Runs successfully updated!");
     }
-    private static void writeSave() throws IOException {
+    private static void writeSave() throws IOException, ParseException {
         // Update the JSON object with the new run count
         JSONObject obj = new JSONObject();
         obj.put("Name", fileName);

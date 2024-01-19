@@ -4,6 +4,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -80,7 +81,7 @@ public class Main {
         }
     }
     /**This method contains the entire combat system, while calling on other helper methods*/
-    private static void battle() throws IOException {
+    private static void battle() throws IOException, ParseException {
         Text.battleIntro();
         int currentStage = 1;
         int currentLevel = 1;
@@ -106,7 +107,7 @@ public class Main {
 
     }
     /**Used for when you are currently engaged in combat*/
-    private static void combatLoop() throws IOException {
+    private static void combatLoop() throws IOException, ParseException {
         Text.encounterEnemy();
         char combatChoice;
         while (Character.getPlayerHP() > 0) {
@@ -136,24 +137,13 @@ public class Main {
             }
             Enemy.enemyTurn();
         }
-        System.out.println("Though you fought well, the " + Enemy.gCurrentEnemy.getEnemyName() + " proves to be too powerful a foe.");
-        stall();
-        System.out.println("Clutching your [WEAPON] weakly, you feel your vision blur in and out of focus.");
-        stall();
-        System.out.println("As your conscious fades, you feel your body relax.");
-        System.out.println("Maybe not in this life, but perhaps the next one.");
-        stall();
-        System.out.println("There is comfort in that thought.");
-        stall();
-        System.out.println("You died!");
+        Text.deathDialogue();
         Saves.updateRuns();
-        /*Note to self where I left off, I should probably take the death effect out of the combat loop because that's bad code...
-        DO IT LATER
-        */
         System.exit(0);
     }
     /**A function used for generating the random buffs that you can get, whether it be a spell, a buff, or a weapon*/
     private static void generateRewards() {
+        Scanner scanner = new Scanner(System.in);
         String[] rewards = new String[3];
         String[] rewardType = new String[3];
         Random rand = new Random();
@@ -174,6 +164,24 @@ public class Main {
         }
         System.out.println("Choose a reward!");
         System.out.println("[1] " + rewards[0] + "(" + rewardType[0] + ")" + "\t[2] " + rewards[1] + "(" + rewardType[1] + ")" + "\t[3] " + rewards[2] + "(" + rewardType[2] + ")");
+        String choice = "Z";
+        choice = scanner.nextLine();
+        while (!Objects.equals(choice, "1") && !Objects.equals(choice, "2") && !Objects.equals(choice, "3")) {
+            System.out.println("Please input a valid integer!");
+            choice = scanner.nextLine();
+        }
+        claimReward(rewardType[Integer.parseInt(choice)], "1");
+    }
+    private static void claimReward(String type, String ID) {
+        if (type.equals("Buff")) {
+            System.out.println("Temporary get buff");
+        }
+        else if (type.equals("Weapon")) {
+            System.out.println("Temporary get weapon");
+        }
+        else {
+            System.out.println("Temporary get spell");
+        }
     }
     /**Used for setting up all the things in the background*/
     private static void setup() throws IOException, ParseException {

@@ -56,4 +56,8 @@ public class Buffs {
         gCurrentBuff = gBuffMap.get(String.valueOf(picked));
         return gCurrentBuff.mName;
     }
+    public static int getBuffID(String buffName) {
+        gCurrentBuff = gBuffMap.get(buffName);
+        return (int) gCurrentBuff.mID;
+    }
 }

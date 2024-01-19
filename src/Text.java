@@ -62,6 +62,18 @@ public class Text {
         System.out.println("Drawing your [WEAPON NAME], you prepare to fight."); //The weapon thing is still under construction...
         stall();
     }
+    public static void deathDialogue() {
+        System.out.println("Though you fought well, the " + Enemy.gCurrentEnemy.getEnemyName() + " proves to be too powerful a foe.");
+        stall();
+        System.out.println("Clutching your [WEAPON] weakly, you feel your vision blur in and out of focus.");
+        stall();
+        System.out.println("As your conscious fades, you feel your body relax.");
+        System.out.println("Maybe not in this life, but perhaps the next one.");
+        stall();
+        System.out.println("There is comfort in that thought.");
+        stall();
+        System.out.println("You died!");
+    }
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();

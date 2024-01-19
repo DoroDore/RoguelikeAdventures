@@ -1,0 +1,66 @@
+[
+  {
+    "ID": 1,
+    "Name": "Longsword",
+    "ATK": 3,
+    "DEF": 0,
+    "Mana": 0,
+    "Skill": "null"
+  },
+  {
+    "ID": 2,
+    "Name": "Dagger",
+    "ATK": 4,
+    "DEF": -1,
+    "Mana": 0,
+    "Skill": "null"
+  },
+  {
+    "ID": 3,
+    "Name": "Wooden Buckler",
+    "ATK": 0,
+    "DEF": 2,
+    "Mana": 0,
+    "Skill": "null"
+  },
+  {
+    "ID": 4,
+    "Name": "Staff of Flame",
+    "ATK": 2,
+    "DEF": 0,
+    "Mana": 10,
+    "Skill": "Fireball"
+  },
+  {
+    "ID": 5,
+    "Name": "Enchanted Sword",
+    "ATK": 4,
+    "DEF": 0,
+    "Mana": 5,
+    "Skill": "Pierce"
+  },
+  {
+    "ID": 6,
+    "Name": "Sword and Shield",
+    "ATK": 3,
+    "DEF": 1,
+    "Mana": 0,
+    "Skill": "Fortify"
+  },
+  {
+    "ID": 7,
+    "Name": "Twisted Scepter",
+    "ATK": 5,
+    "DEF": -3,
+    "Mana": 20,
+    "Skill": "Pact Bolt"
+  },
+  {
+    "ID": 8,
+    "Name": "Enchanted Scissors",
+    "ATK": 5,
+    "DEF": 0,
+    "Mana": 10,
+    "Skill": "Soul Snip"
+  }
+]
