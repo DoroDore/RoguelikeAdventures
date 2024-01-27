@@ -52,12 +52,16 @@ public class Buffs {
     public static String getBuff() {
         Random rand = new Random();
         int picked = rand.nextInt(20)+1;
-        System.out.println(picked);
+        //System.out.println(picked); This is only used for when I need to check the ID of the buff chosen
         gCurrentBuff = gBuffMap.get(String.valueOf(picked));
-        return gCurrentBuff.mName;
+        return String.valueOf(gCurrentBuff.mID);
     }
     public static int getBuffID(String buffName) {
         gCurrentBuff = gBuffMap.get(buffName);
         return (int) gCurrentBuff.mID;
+    }
+    public static String getBuffName(String id) {
+        gCurrentBuff = gBuffMap.get(id);
+        return gCurrentBuff.mName;
     }
 }

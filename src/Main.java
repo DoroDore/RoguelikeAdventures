@@ -146,12 +146,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String[] rewards = new String[3];
         String[] rewardType = new String[3];
+        String[] rewardName = new String[3];
         Random rand = new Random();
         for (int i = 0; i < 3; i++) {
             int type = rand.nextInt(3)+1; //1 is Buffs, 2 is Spells, 3 is Weapons.
             if (type == 1) {
                 rewards[i] = Buffs.getBuff();
                 rewardType[i] = "Buff";
+                rewardName[i] = Buffs.getBuffName(rewards[i]);
             }
             else if (type == 2) {
                 rewards[i] = "Temporary Spell Result";
@@ -163,7 +165,7 @@ public class Main {
             }
         }
         System.out.println("Choose a reward!");
-        System.out.println("[1] " + rewards[0] + "(" + rewardType[0] + ")" + "\t[2] " + rewards[1] + "(" + rewardType[1] + ")" + "\t[3] " + rewards[2] + "(" + rewardType[2] + ")");
+        System.out.println("[1] " + rewardName[0] + "(" + rewardType[0] + ")" + "\t[2] " + rewardName[1] + "(" + rewardType[1] + ")" + "\t[3] " + rewardName[2] + "(" + rewardType[2] + ")");
         String choice = "Z";
         choice = scanner.nextLine();
         while (!Objects.equals(choice, "1") && !Objects.equals(choice, "2") && !Objects.equals(choice, "3")) {

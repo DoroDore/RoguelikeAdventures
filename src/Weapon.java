@@ -32,21 +32,31 @@ public class Weapon {
     }
     public static void main(String[] args) throws IOException, ParseException {
         loadWeapons(readFile("./src/Weapons.json"));
-
+        gCurrentWeapon = gWeaponMap.get("6");
+        gCurrentWeapon.displayStats();
     }
     public static void loadWeapons(JSONArray data) {
         for (Object o : data) {
             JSONObject obj = (JSONObject) o;
             String name = (String) obj.get("Name");
-            int id = (int) obj.get("ID");
+            int id = ((Long) obj.get("ID")).intValue(); // Change the type to Long
             String idString = String.valueOf(obj.get("ID"));
-            int atk = (int) obj.get("ATK");
-            int def = (int) obj.get("DEF");
-            int mana = (int) obj.get("Mana");
-            String skill = String.valueOf(obj.get("Skill"));
+            int atk = ((Long) obj.get("ATK")).intValue(); // Cast to Long and then convert to int
+            int def = ((Long) obj.get("DEF")).intValue(); // Cast to Long and then convert to int
+            int mana = ((Long) obj.get("Mana")).intValue(); // Cast to Long and then convert to int
+            String skill = (String) obj.get("Skill");
             Weapon weapon = new Weapon(name, id, atk, def, mana, skill);
             gWeaponMap.put(idString, weapon);
         }
+    }
+    /**Displays stats of an given weapon in the console*/
+    public void displayStats() {
+        System.out.println("Name: " + mName);
+        System.out.println("ID: " + mID);
+        System.out.println("ATK: " + mATK);
+        System.out.println("DEF: " + mDEF);
+        System.out.println("Mana: " + mMana);
+        System.out.println("Skill: " + mSkill);
     }
     //Below are all my getter methods for weapon stats.
     private String getName() {
